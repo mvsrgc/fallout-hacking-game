@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fallout-hacking-game/static/css/main.7802aa0b.chunk.css",
+    "main.js": "/fallout-hacking-game/static/js/main.c37ad903.chunk.js",
+    "main.js.map": "/fallout-hacking-game/static/js/main.c37ad903.chunk.js.map",
+    "runtime-main.js": "/fallout-hacking-game/static/js/runtime-main.9050cb02.js",
+    "runtime-main.js.map": "/fallout-hacking-game/static/js/runtime-main.9050cb02.js.map",
+    "static/js/2.aa23b5cf.chunk.js": "/fallout-hacking-game/static/js/2.aa23b5cf.chunk.js",
+    "static/js/2.aa23b5cf.chunk.js.map": "/fallout-hacking-game/static/js/2.aa23b5cf.chunk.js.map",
+    "index.html": "/fallout-hacking-game/index.html",
+    "precache-manifest.d864330b91dcbaaa1a06cfb81b4296ee.js": "/fallout-hacking-game/precache-manifest.d864330b91dcbaaa1a06cfb81b4296ee.js",
+    "service-worker.js": "/fallout-hacking-game/service-worker.js",
+    "static/css/main.7802aa0b.chunk.css.map": "/fallout-hacking-game/static/css/main.7802aa0b.chunk.css.map",
+    "static/js/2.aa23b5cf.chunk.js.LICENSE.txt": "/fallout-hacking-game/static/js/2.aa23b5cf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9050cb02.js",
+    "static/js/2.aa23b5cf.chunk.js",
+    "static/css/main.7802aa0b.chunk.css",
+    "static/js/main.c37ad903.chunk.js"
+  ]
+}
