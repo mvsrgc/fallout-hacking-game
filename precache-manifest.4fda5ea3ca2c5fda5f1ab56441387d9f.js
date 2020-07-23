@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5500217b5e6689d53016db3c79d623b4",
+    "revision": "4efe2ed4c9931c12c5f92d5191fecf7b",
     "url": "/fallout-hacking-game/index.html"
   },
   {
