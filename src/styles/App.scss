@@ -15,8 +15,6 @@ body {
   display: flex;
   margin: 0;
   padding: 0;
-  align-items: center;
-  justify-content: center;
 }
 
 p {
@@ -24,21 +22,25 @@ p {
 }
 
 /** Custom CSS **/
-.App {
-  font-family: $output-font-family;
+#root {
+  width: 100%;
 }
 
-#App {
+.App {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  font-family: $output-font-family;
   background: $background-color;
-  padding: 20px;
-  width: 1280px;
-  height: 1024px;
-  user-select: none;
   font-size: $font-size;
+
 }
 
 #terminal {
-  width: 100%;
+  margin: auto;
+  width: 1000px;
   height: 100%;
   color: $output-color;
   text-shadow: $output-text-shadow;
