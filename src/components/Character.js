@@ -1,8 +1,17 @@
 import React from "react";
 
-function Character({ character }) {
+function Character({ character, checkWinner }) {
+  function handleClick(character) {
+    if (character.length > 1) {
+      // sound
+      checkWinner(character);
+    } else {
+      // sound
+    }
+  }
+
   return (
-    <span onClick={() => {console.log(character)}} className="character">
+    <span onClick={() => handleClick(character)} className="character">
       {character}
     </span>
   );

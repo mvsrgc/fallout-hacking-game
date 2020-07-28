@@ -35,7 +35,6 @@ p {
   font-family: $output-font-family;
   background: $background-color;
   font-size: $font-size;
-
 }
 
 #terminal {
@@ -44,6 +43,7 @@ p {
   height: 100%;
   color: $output-color;
   text-shadow: $output-text-shadow;
+  user-select: none;
 }
 
 #terminal p {
