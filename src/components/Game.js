@@ -24,7 +24,11 @@ function Game() {
       return;
     }
 
-    setAttempsLeft(attempsLeft - 1);
+    if (attempsLeft > 0) {
+      setAttempsLeft(attempsLeft - 1);
+    } else {
+      console.log("You lose!");
+    }
   };
 
   return (
