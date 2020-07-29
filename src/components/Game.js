@@ -8,7 +8,7 @@ const characters = "./@.!@#$%^&*()-=+><,[]{}";
 const words = ["STORY", "SYNOPSIS", "THE", "PLAYER", "CHARACTER", "STUMBLES", "IRRADIATED", "PRESSURE", "ABILITY"];
 
 function Game() {
-  const [attempsLeft, setAttempsLeft] = useState(3);
+  const [attemptsLeft, setAttemptsLeft] = useState(3);
 
   const [sequences] = useState(() => {
     return addWords(generateSequences(34, characters), words, 9);
@@ -24,8 +24,8 @@ function Game() {
       return;
     }
 
-    if (attempsLeft > 0) {
-      setAttempsLeft(attempsLeft - 1);
+    if (attemptsLeft > 0) {
+      setAttemptsLeft(attemptsLeft - 1);
     } else {
       console.log("You lose!");
     }
@@ -39,7 +39,14 @@ function Game() {
         <p>Winner word: {winnerWord}</p>
       </div>
       <div className="attempts">
-        <p>{attempsLeft} ATTEMPT(S) LEFT...</p>
+        <p>
+          <span className="attemptsLeft">{attemptsLeft} ATTEMPT(S) LEFT:</span>
+          {Array.from({ length: attemptsLeft }, (index) => (
+            <span key={index} className="attempt">
+              ▇
+            </span>
+          ))}
+        </p>
       </div>
       {sequences.map((sequence, index) => (
         <CharacterSequence key={index} sequence={sequence} checkWinner={checkWinner}></CharacterSequence>

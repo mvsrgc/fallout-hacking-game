@@ -56,6 +56,17 @@ p {
 
 .attempts {
   margin: 15px 0 15px;
+  padding: 5px 0;
+}
+
+.attemptsLeft {
+  vertical-align: middle;
+}
+
+.attempt {
+  font-size: 21px;
+  margin-left: 15px;
+  vertical-align: middle;
 }
 
 .character:hover {
