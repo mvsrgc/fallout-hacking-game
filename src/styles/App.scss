@@ -46,14 +46,6 @@ p {
   user-select: none;
 }
 
-#terminal p {
-  animation: blur 5s linear infinite, glow 1s linear infinite;
-}
-
-.header {
-  line-height: 1;
-}
-
 .attempts {
   margin: 15px 0 15px;
   padding: 5px 0;
@@ -74,15 +66,20 @@ p {
   color: black;
 }
 
-@keyframes blur {
-  50% {
-    color: darken($output-color, 10%);
-    text-shadow: 2px 0 2px lighten($output-text-shadow, 30%);
-  }
+.main {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
-@keyframes glow {
-  50% {
-    transform: scale(1.002);
-  }
+.sequences {
+  display: flex;
+  flex-direction: column;
+}
+
+.history {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  min-width: 200px;
 }
