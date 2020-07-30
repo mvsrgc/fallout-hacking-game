@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 
 import CharacterSequence from "./CharacterSequence";
 import History from "./History";
@@ -8,38 +8,60 @@ import { addWords, generateSequences, random } from "./utils";
 const characters = "./@.!@#$%^&*()-=+><,[]{}";
 const words = ["STORY", "SYNOPSIS", "THE", "PLAYER", "CHARACTER", "STUMBLES", "IRRADIATED", "PRESSURE", "ABILITY"];
 
+const gameReducer = (state, action) => {
+  switch (action.type) {
+    case "attempt":
+      return {
+        ...state,
+        attemptsLeft: state.attemptsLeft - 1,
+      };
+    case "add-to-history":
+      return {
+        ...state,
+        history: state.history.concat(action.payload),
+      };
+    case "win":
+      return {
+        ...state,
+        hasWon: true,
+      };
+    default:
+      break;
+  }
+};
+
+const initialState = {
+  history: [],
+  hasWon: false,
+  attemptsLeft: 3,
+  winnerWord: words[random(words.length)],
+  sequences: addWords(generateSequences(34, characters), words, 9),
+};
+
 function Game() {
-  const [history, setHistory] = useState([]);
-  const [hasWon, setHasWon] = useState(false);
-  const [attemptsLeft, setAttemptsLeft] = useState(3);
+  const [state, dispatch] = useReducer(gameReducer, initialState);
 
-  const [winnerWord] = useState(() => {
-    return words[random(words.length)];
-  });
-
-  const [sequences] = useState(() => {
-    return addWords(generateSequences(34, characters), words, 9);
-  });
+  const { history, hasWon, attemptsLeft, winnerWord, sequences } = state;
 
   const checkWinner = (word) => {
     if (hasWon || attemptsLeft === 0) {
       return;
     }
 
-    setHistory((history) => history.concat([word]));
+    dispatch({ type: "add-to-history", payload: word });
 
     if (word === winnerWord) {
-      setHistory((history) => history.concat(["Success!"]));
-      setHasWon(true);
+      dispatch({ type: "add-to-history", payload: "Success!" });
+      dispatch({ type: "win" });
       return;
     }
 
-    setAttemptsLeft(attemptsLeft - 1);
+    dispatch({ type: "attempt" });
 
     if (attemptsLeft - 1 === 0) {
-      setHistory((history) => history.concat(["You are locked out!"]));
+      dispatch({ type: "add-to-history", payload: "You are locked out!" });
     } else {
-      setHistory((history) => history.concat(["Incorrect attempt!"]));
+      dispatch({ type: "add-to-history", payload: "Incorrect attempt!" });
     }
   };
 
