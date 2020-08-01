@@ -10,20 +10,31 @@ const words = ["STORY", "SYNOPSIS", "THE", "PLAYER", "CHARACTER", "STUMBLES", "I
 
 const gameReducer = (state, action) => {
   switch (action.type) {
-    case "attempt":
+    case "check-winner":
+      if (state.hasWon || state.attemptsLeft === 0) {
+        return {...state};
+      }
+
+      if (action.payload === state.winnerWord) {
+        return {
+          ...state,
+          hasWon: true,
+          history: state.history.concat([action.payload, "Success!"]),
+        };
+      }
+
+      if (state.attemptsLeft - 1 === 0) {
+        return {
+          ...state,
+          attemptsLeft: state.attemptsLeft - 1,
+          history: state.history.concat([action.payload, "You are locked out!"]),
+        };
+      }
+
       return {
         ...state,
         attemptsLeft: state.attemptsLeft - 1,
-      };
-    case "add-to-history":
-      return {
-        ...state,
-        history: state.history.concat(action.payload),
-      };
-    case "win":
-      return {
-        ...state,
-        hasWon: true,
+        history: state.history.concat([action.payload, "Incorrect attempt!"]),
       };
     default:
       break;
@@ -44,25 +55,7 @@ function Game() {
   const { history, hasWon, attemptsLeft, winnerWord, sequences } = state;
 
   const checkWinner = (word) => {
-    if (hasWon || attemptsLeft === 0) {
-      return;
-    }
-
-    dispatch({ type: "add-to-history", payload: word });
-
-    if (word === winnerWord) {
-      dispatch({ type: "add-to-history", payload: "Success!" });
-      dispatch({ type: "win" });
-      return;
-    }
-
-    dispatch({ type: "attempt" });
-
-    if (attemptsLeft - 1 === 0) {
-      dispatch({ type: "add-to-history", payload: "You are locked out!" });
-    } else {
-      dispatch({ type: "add-to-history", payload: "Incorrect attempt!" });
-    }
+    dispatch({ type: "check-winner", payload: word });
   };
 
   return (
