@@ -2,9 +2,9 @@ import React from "react";
 
 function History({ entry }) {
   return (
-    <p>
+    <span>
       {">"} {entry}
-    </p>
+    </span>
   );
 }
 

@@ -35,5 +35,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://eacdev.github.io/fallout-hacking-game"
+  "homepage": "https://eacdev.github.io/fallout-hacking-game",
+  "devDependencies": {
+    "tailwindcss": "^1.6.2"
+  }
 }

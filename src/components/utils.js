@@ -110,3 +110,23 @@ export function addWords(sequences, words, amount) {
   // return new sequences array
   return copiedSequences;
 }
+
+/**
+ * Returns a count of how many characters are identical and in the same place in two words.
+ * @param {string} winnerWord the word to compare to
+ * @param {string} word the word chosen by the user
+ * @return {number} the count of correct characters
+ */
+export function countCorrectCharacters(winnerWord, word) {
+  let count = 0;
+
+  const length = Math.min(winnerWord.length, word.length);
+
+  for (let i = 0; i < length; i++) {
+    if (winnerWord.charAt(i) === word.charAt(i)) {
+      count++;
+    }
+  }
+
+  return count;
+}

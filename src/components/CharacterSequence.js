@@ -23,9 +23,9 @@ function CharacterSequence({ sequence, checkWinner }) {
   });
 
   return (
-    <p>
+    <span>
       {hex} {output}
-    </p>
+    </span>
   );
 }
 

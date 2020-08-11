@@ -3,16 +3,28 @@ import React, { useReducer } from "react";
 import CharacterSequence from "./CharacterSequence";
 import History from "./History";
 
-import { addWords, generateSequences, random } from "./utils";
+import { addWords, generateSequences, random, countCorrectCharacters } from "./utils";
 
 const characters = "./@.!@#$%^&*()-=+><,[]{}";
 const words = ["STORY", "SYNOPSIS", "THE", "PLAYER", "CHARACTER", "STUMBLES", "IRRADIATED", "PRESSURE", "ABILITY"];
+
+/**
+ * Concatenates the newest attempt and information relating to it to the history array.
+ * @param {string} word the word selected by the user.
+ * @param {string} winnerWord the word that wins the game.
+ * @param {number} nbCorrectCharacters the amount of correct characters in the word.
+ * @param {string} feedback feedback relating to the attempt.
+ */
+const updateHistory = (word, winnerWord, nbCorrectCharacters, feedback) => {
+  const message = `${nbCorrectCharacters}/${winnerWord.length} correct.`;
+  return [word, message, feedback];
+};
 
 const gameReducer = (state, action) => {
   switch (action.type) {
     case "check-winner":
       if (state.hasWon || state.attemptsLeft === 0) {
-        return {...state};
+        return { ...state };
       }
 
       if (action.payload === state.winnerWord) {
@@ -27,14 +39,14 @@ const gameReducer = (state, action) => {
         return {
           ...state,
           attemptsLeft: state.attemptsLeft - 1,
-          history: state.history.concat([action.payload, "You are locked out!"]),
+          history: state.history.concat([action.payload, `${countCorrectCharacters(state.winnerWord, action.payload)}/${state.winnerWord.length} correct.`, "You are locked out!"]),
         };
       }
 
       return {
         ...state,
         attemptsLeft: state.attemptsLeft - 1,
-        history: state.history.concat([action.payload, "Incorrect attempt!"]),
+        history: state.history.concat([action.payload, `${countCorrectCharacters(state.winnerWord, action.payload)}/${state.winnerWord.length} correct.`, "Incorrect attempt!"]),
       };
     default:
       break;
@@ -64,7 +76,6 @@ function Game() {
       <div className="header">
         <p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
         <p>ENTER PASSWORD NOW</p>
-        <p>Winner word: {winnerWord}</p>
       </div>
 
       {/* Display the remaining attemps. */}
