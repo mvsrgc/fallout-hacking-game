@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fallout-hacking-game/precache-manifest.4a281ee292382d5e29145332c9095d25.js"
+  "/fallout-hacking-game/precache-manifest.1c20b065794eea59e5f8d6b3b3b6bee4.js"
 );
 
 self.addEventListener('message', (event) => {

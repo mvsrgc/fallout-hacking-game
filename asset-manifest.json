@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/fallout-hacking-game/static/css/main.89ae536f.chunk.css",
-    "main.js": "/fallout-hacking-game/static/js/main.f48529d2.chunk.js",
-    "main.js.map": "/fallout-hacking-game/static/js/main.f48529d2.chunk.js.map",
+    "main.css": "/fallout-hacking-game/static/css/main.cf63429e.chunk.css",
+    "main.js": "/fallout-hacking-game/static/js/main.a32bec88.chunk.js",
+    "main.js.map": "/fallout-hacking-game/static/js/main.a32bec88.chunk.js.map",
     "runtime-main.js": "/fallout-hacking-game/static/js/runtime-main.9050cb02.js",
     "runtime-main.js.map": "/fallout-hacking-game/static/js/runtime-main.9050cb02.js.map",
     "static/js/2.6307b9c7.chunk.js": "/fallout-hacking-game/static/js/2.6307b9c7.chunk.js",
     "static/js/2.6307b9c7.chunk.js.map": "/fallout-hacking-game/static/js/2.6307b9c7.chunk.js.map",
     "index.html": "/fallout-hacking-game/index.html",
-    "precache-manifest.4a281ee292382d5e29145332c9095d25.js": "/fallout-hacking-game/precache-manifest.4a281ee292382d5e29145332c9095d25.js",
+    "precache-manifest.1c20b065794eea59e5f8d6b3b3b6bee4.js": "/fallout-hacking-game/precache-manifest.1c20b065794eea59e5f8d6b3b3b6bee4.js",
     "service-worker.js": "/fallout-hacking-game/service-worker.js",
-    "static/css/main.89ae536f.chunk.css.map": "/fallout-hacking-game/static/css/main.89ae536f.chunk.css.map",
+    "static/css/main.cf63429e.chunk.css.map": "/fallout-hacking-game/static/css/main.cf63429e.chunk.css.map",
     "static/js/2.6307b9c7.chunk.js.LICENSE.txt": "/fallout-hacking-game/static/js/2.6307b9c7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9050cb02.js",
     "static/js/2.6307b9c7.chunk.js",
-    "static/css/main.89ae536f.chunk.css",
-    "static/js/main.f48529d2.chunk.js"
+    "static/css/main.cf63429e.chunk.css",
+    "static/js/main.a32bec88.chunk.js"
   ]
 }
