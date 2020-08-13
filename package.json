@@ -13,9 +13,10 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "build:style":"tailwind build src/styles/App.css -o src/styles/tailwind.css",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
+    "start": "npm run build:style && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

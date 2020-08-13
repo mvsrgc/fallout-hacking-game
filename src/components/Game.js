@@ -71,35 +71,43 @@ function Game() {
   };
 
   return (
-    <div id="terminal">
-      {/* Header displaying information about the state of the game. */}
-      <div className="header">
+    <div className="container mx-auto">
+      <div>
         <p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
         <p>ENTER PASSWORD NOW</p>
       </div>
 
-      {/* Display the remaining attemps. */}
-      <div className="attempts">
+      <div>
         <p>
-          <span className="attemptsLeft">{attemptsLeft} ATTEMPT(S) LEFT:</span>
+          <span>{attemptsLeft} ATTEMPT(S) LEFT:</span>
           {Array.from({ length: attemptsLeft }, (index) => (
-            <span key={index} className="attempt">
+            <span key={index}>
               ▇
             </span>
           ))}
         </p>
       </div>
 
-      <div className="main">
+      <div className="mt-3">
         {/* The randomly generated sequences of characters and words. */}
-        <div className="sequences">
-          {sequences.map((sequence, index) => (
-            <CharacterSequence key={index} sequence={sequence} checkWinner={checkWinner}></CharacterSequence>
-          ))}
+        <div className="flex justify-between sm:space-x-12 sm:justify-start">
+          <div className="flex flex-col">
+            {sequences.map((sequence, index) => {
+              if (index <= 16) {
+                return <CharacterSequence key={index} sequence={sequence} checkWinner={checkWinner}></CharacterSequence>;
+              }
+            })}
+          </div>
+          <div className="flex flex-col">
+            {sequences.map((sequence, index) => {
+              if (index > 16) {
+                return <CharacterSequence key={index} sequence={sequence} checkWinner={checkWinner}></CharacterSequence>;
+              }
+            })}
+          </div>
         </div>
 
-        {/* Shows past selections, and whether an attempt was correct or not. */}
-        <div className="history">
+        <div className="flex flex-col">
           {history.map((entry, index) => (
             <History key={index} entry={entry}></History>
           ))}
