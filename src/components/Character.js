@@ -11,7 +11,7 @@ function Character({ character, checkWinner }) {
   }
 
   return (
-    <span onClick={() => handleClick(character)} className="character">
+    <span onClick={() => handleClick(character)} className="hover:bg-fallout-green hover:text-black">
       {character}
     </span>
   );

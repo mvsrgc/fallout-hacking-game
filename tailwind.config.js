@@ -7,5 +7,10 @@ module.exports = {
       display: ['VT323', 'monospace'],
       body: 'VT323',
     },
+    extend: {
+      colors: {
+        'fallout-green': '#18ff62'
+      }
+    }
   },
 }

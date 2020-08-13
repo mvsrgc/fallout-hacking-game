@@ -78,14 +78,14 @@ function Game() {
       </div>
 
       <div>
-        <p>
+        <div className="flex space-x-3">
           <span>{attemptsLeft} ATTEMPT(S) LEFT:</span>
           {Array.from({ length: attemptsLeft }, (index) => (
             <span key={index}>
               ▇
             </span>
           ))}
-        </p>
+        </div>
       </div>
 
       <div className="mt-3">
