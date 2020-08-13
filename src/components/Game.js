@@ -80,7 +80,7 @@ function Game() {
       <div>
         <div className="flex space-x-3">
           <span>{attemptsLeft} ATTEMPT(S) LEFT:</span>
-          {Array.from({ length: attemptsLeft }, (index) => (
+          {Array.from({ length: attemptsLeft }, (item, index) => (
             <span key={index}>▇</span>
           ))}
         </div>
