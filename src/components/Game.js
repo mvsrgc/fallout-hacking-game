@@ -81,9 +81,7 @@ function Game() {
         <div className="flex space-x-3">
           <span>{attemptsLeft} ATTEMPT(S) LEFT:</span>
           {Array.from({ length: attemptsLeft }, (index) => (
-            <span key={index}>
-              ▇
-            </span>
+            <span key={index}>▇</span>
           ))}
         </div>
       </div>
@@ -105,9 +103,13 @@ function Game() {
               }
             })}
           </div>
+          <div className="hidden mt-3 sm:flex sm:flex-col sm:justify-end">
+            {history.map((entry, index) => (
+              <History key={index} entry={entry}></History>
+            ))}
+          </div>
         </div>
-
-        <div className="flex flex-col">
+        <div className="flex flex-col-reverse mt-3 sm:hidden">
           {history.map((entry, index) => (
             <History key={index} entry={entry}></History>
           ))}
