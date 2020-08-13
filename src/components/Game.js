@@ -71,35 +71,45 @@ function Game() {
   };
 
   return (
-    <div id="terminal">
-      {/* Header displaying information about the state of the game. */}
-      <div className="header">
+    <div className="container mx-auto">
+      <div>
         <p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
         <p>ENTER PASSWORD NOW</p>
       </div>
 
-      {/* Display the remaining attemps. */}
-      <div className="attempts">
-        <p>
-          <span className="attemptsLeft">{attemptsLeft} ATTEMPT(S) LEFT:</span>
-          {Array.from({ length: attemptsLeft }, (index) => (
-            <span key={index} className="attempt">
-              ▇
-            </span>
-          ))}
-        </p>
-      </div>
-
-      <div className="main">
-        {/* The randomly generated sequences of characters and words. */}
-        <div className="sequences">
-          {sequences.map((sequence, index) => (
-            <CharacterSequence key={index} sequence={sequence} checkWinner={checkWinner}></CharacterSequence>
+      <div>
+        <div className="flex space-x-3">
+          <span>{attemptsLeft} ATTEMPT(S) LEFT:</span>
+          {Array.from({ length: attemptsLeft }, (item, index) => (
+            <span key={index}>▇</span>
           ))}
         </div>
+      </div>
 
-        {/* Shows past selections, and whether an attempt was correct or not. */}
-        <div className="history">
+      <div className="mt-3">
+        {/* The randomly generated sequences of characters and words. */}
+        <div className="flex justify-between sm:space-x-12 sm:justify-start">
+          <div className="flex flex-col">
+            {sequences.map((sequence, index) => {
+              if (index <= 16) {
+                return <CharacterSequence key={index} sequence={sequence} checkWinner={checkWinner}></CharacterSequence>;
+              }
+            })}
+          </div>
+          <div className="flex flex-col">
+            {sequences.map((sequence, index) => {
+              if (index > 16) {
+                return <CharacterSequence key={index} sequence={sequence} checkWinner={checkWinner}></CharacterSequence>;
+              }
+            })}
+          </div>
+          <div className="hidden mt-3 sm:flex sm:flex-col sm:justify-end">
+            {history.map((entry, index) => (
+              <History key={index} entry={entry}></History>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col-reverse mt-3 sm:hidden">
           {history.map((entry, index) => (
             <History key={index} entry={entry}></History>
           ))}
